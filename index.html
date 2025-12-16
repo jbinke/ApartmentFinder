@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Comparison Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="cute-decoration decoration-1"><i class="fas fa-home"></i></div>
+            <div class="cute-decoration decoration-2"><i class="fas fa-star"></i></div>
+            <div class="cute-decoration decoration-3"><i class="fas fa-heart"></i></div>
+            
+            <h1><i class="fas fa-house-heart"></i> Apartment Hunter</h1>
+            <p class="subtitle">Compare apartments, units, and features to find your perfect home!</p>
+        </header>
+        
+        <div class="work-address-section">
+            <h3><i class="fas fa-briefcase"></i> Work Location</h3>
+            <p id="workAddress">1 Lincoln St, Moapa, NV (All distances calculated from this location)</p>
+        </div>
+        
+        <div class="main-content">
+            <section class="input-section">
+                <h2 class="section-title"><i class="fas fa-plus-circle"></i> Add New Apartment</h2>
+                
+                <form id="apartmentForm">
+                    <div class="form-group">
+                        <label for="apartmentName">Apartment Complex Name *</label>
+                        <input type="text" id="apartmentName" placeholder="e.g., Starlight Residences" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="corporation">Corporation/Owner</label>
+                        <input type="text" id="corporation" placeholder="e.g., ABC Property Management">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <input type="text" id="address" placeholder="e.g., 123 Main St, City, State" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Website URL</label>
+                        <input type="url" id="website" placeholder="https://example.com">
+                    </div>
+                    
+                    <h3 class="section-title" style="margin-top: 30px;"><i class="fas fa-list"></i> Add First Unit</h3>
+                    
+                    <div class="form-group">
+                        <label for="unitName">Unit Name/Number</label>
+                        <input type="text" id="unitName" placeholder="e.g., Unit 4B, Studio Loft, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="baseRent">Base Rent Price ($) *</label>
+                        <input type="number" id="baseRent" min="0" step="0.01" placeholder="e.g., 1500" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unitSpecs">Unit Specifications</label>
+                        <textarea id="unitSpecs" rows="2" placeholder="e.g., 2 bed, 1 bath, 850 sq ft, hardwood floors"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="distanceMiles">Distance from Work (miles)</label>
+                        <input type="number" id="distanceMiles" min="0" step="0.1" placeholder="e.g., 3.5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="distanceMinutes">Distance from Work (minutes)</label>
+                        <input type="number" id="distanceMinutes" min="0" step="1" placeholder="e.g., 15">
+                    </div>
+                    
+                    <h3 class="section-title" style="margin-top: 30px;"><i class="fas fa-check-circle"></i> Unit Features</h3>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <input type="checkbox" id="patio" class="feature-checkbox">
+                            <label for="patio" style="margin:0; cursor:pointer;"><i class="fas fa-umbrella-beach"></i> Patio/Balcony</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="washer" class="feature-checkbox">
+                            <label for="washer" style="margin:0; cursor:pointer;"><i class="fas fa-tshirt"></i> Washer/Dryer</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="tub" class="feature-checkbox">
+                            <label for="tub" style="margin:0; cursor:pointer;"><i class="fas fa-bath"></i> Tub</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="shower" class="feature-checkbox">
+                            <label for="shower" style="margin:0; cursor:pointer;"><i class="fas fa-shower"></i> Shower</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="garage" class="feature-checkbox">
+                            <label for="garage" style="margin:0; cursor:pointer;"><i class="fas fa-warehouse"></i> Garage</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="parking" class="feature-checkbox">
+                            <label for="parking" style="margin:0; cursor:pointer;"><i class="fas fa-car"></i> Outdoor Parking</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="security" class="feature-checkbox">
+                            <label for="security" style="margin:0; cursor:pointer;"><i class="fas fa-shield-alt"></i> Security</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="wifi" class="feature-checkbox">
+                            <label for="wifi" style="margin:0; cursor:pointer;"><i class="fas fa-wifi"></i> WiFi Included</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="pets" class="feature-checkbox">
+                            <label for="pets" style="margin:0; cursor:pointer;"><i class="fas fa-paw"></i> Pet Friendly</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="furnished" class="feature-checkbox">
+                            <label for="furnished" style="margin:0; cursor:pointer;"><i class="fas fa-couch"></i> Furnished</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="ac" class="feature-checkbox">
+                            <label for="ac" style="margin:0; cursor:pointer;"><i class="fas fa-snowflake"></i> A/C</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="heating" class="feature-checkbox">
+                            <label for="heating" style="margin:0; cursor:pointer;"><i class="fas fa-fire"></i> Heating</label>
+                        </div>
+                    </div>
+                    
+                    <h3 class="section-title" style="margin-top: 30px;"><i class="fas fa-bolt"></i> Monthly Utilities & Fees</h3>
+                    
+                    <div class="utility-section">
+                        <div class="utility-row">
+                            <label for="electric">Electric ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="electric" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="electric">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="water">Water ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="water" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="water">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="trash">Trash ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="trash" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="trash">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="internet">Internet ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="internet" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="internet">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="parkingFee">Parking Fee ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="parkingFee" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="parkingFee">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="petFee">Pet Fee ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="petFee" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="petFee">?</button>
+                            </div>
+                        </div>
+                        
+                        <div class="utility-row">
+                            <label for="otherMonthly">Other Monthly ($/month):</label>
+                            <div class="utility-input-group">
+                                <input type="number" id="otherMonthly" min="0" step="0.01" placeholder="0.00">
+                                <button type="button" class="unknown-btn" data-for="otherMonthly">?</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="section-title" style="margin-top: 30px;"><i class="fas fa-calendar-alt"></i> One-Time Fees</h3>
+                    
+                    <div class="one-time-fees">
+                        <div class="one-time-grid">
+                            <div class="one-time-item">
+                                <input type="checkbox" id="applicationFee" class="one-time-checkbox">
+                                <label for="applicationFee" style="margin:0; cursor:pointer;">Application Fee</label>
+                                <input type="number" id="applicationFeeAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                            <div class="one-time-item">
+                                <input type="checkbox" id="securityDeposit" class="one-time-checkbox">
+                                <label for="securityDeposit" style="margin:0; cursor:pointer;">Security Deposit</label>
+                                <input type="number" id="securityDepositAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                            <div class="one-time-item">
+                                <input type="checkbox" id="adminFee" class="one-time-checkbox">
+                                <label for="adminFee" style="margin:0; cursor:pointer;">Admin Fee</label>
+                                <input type="number" id="adminFeeAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                            <div class="one-time-item">
+                                <input type="checkbox" id="petDeposit" class="one-time-checkbox">
+                                <label for="petDeposit" style="margin:0; cursor:pointer;">Pet Deposit</label>
+                                <input type="number" id="petDepositAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                            <div class="one-time-item">
+                                <input type="checkbox" id="cleaningFee" class="one-time-checkbox">
+                                <label for="cleaningFee" style="margin:0; cursor:pointer;">Cleaning Fee</label>
+                                <input type="number" id="cleaningFeeAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                            <div class="one-time-item">
+                                <input type="checkbox" id="otherOneTime" class="one-time-checkbox">
+                                <label for="otherOneTime" style="margin:0; cursor:pointer;">Other Fee</label>
+                                <input type="number" id="otherOneTimeAmount" min="0" step="0.01" placeholder="Amount" class="one-time-amount" disabled>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="customFeeName">Custom One-Time Fee:</label>
+                            <div class="custom-fee-input">
+                                <input type="text" id="customFeeName" placeholder="Fee Name">
+                                <input type="number" id="customFeeAmount" min="0" step="0.01" placeholder="Amount">
+                                <button type="button" id="addCustomFee" class="btn-small"><i class="fas fa-plus"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="actions">
+                        <button type="submit" class="btn"><i class="fas fa-home"></i> Add Apartment Complex</button>
+                        <button type="button" id="clearBtn" class="btn btn-secondary"><i class="fas fa-trash-alt"></i> Clear All Apartments</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="comparison-section">
+                <h2 class="section-title"><i class="fas fa-balance-scale"></i> Apartment Comparison</h2>
+                
+                <div id="apartmentsContainer" class="apartments-container">
+                    <!-- Apartments will be dynamically added here -->
+                    <div class="no-apartments" id="noApartmentsMessage">
+                        <i class="fas fa-building"></i>
+                        <h3>No Apartments Added Yet</h3>
+                        <p>Start by adding your first apartment using the form on the left!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>Apartment Hunter <span class="heart">♥</span> | All data is stored locally in your browser</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--accent2);">Made with cute vibes for your apartment search!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
